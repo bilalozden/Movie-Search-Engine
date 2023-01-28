@@ -10,10 +10,14 @@
 
   <ItemGroup>
     <PackageReference Include="CsvHelper" Version="30.0.1" />
+    <PackageReference Include="OpenNLP.NET" Version="1.9.4.1" />
   </ItemGroup>
 
   <ItemGroup>
     <None Update="movieDetails.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="movieDetails3.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="movies_keywords.csv">

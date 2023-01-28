@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Movie_Engine
 {
-    public class Movie
+    public class Movie //keeps the details of each movie
     {
         public string imdb_id { get; set; }
         public string title { get; set; }
@@ -15,20 +15,22 @@ namespace Movie_Engine
         public string genres { get; set; }
         public string score { get; set; }
         public string[] keywords { get; set; }
-        public Dictionary<string, int> keywordPScore { get; set; }
+        public string platforms { get; set; }
         public int keywordsLength { get; set; }
 
-    /* movie details
-           IMDB number at index: 1
-           original title at index: 3
-           year at index: 4
-           runtime minutes: 5
-           genres at index: 6
-           IMDB rating at index: 7
-           keywords at index: 8
-           */
-    public Movie(string imdb_id1, string title1, string year1, string runtime1, string genres1, string score1, string keywords1)
-    {
+        /* movie details
+               IMDB number at index: 1
+               original title at index: 3
+               year at index: 4
+               runtime minutes: 5
+               genres at index: 6
+               IMDB rating at index: 7
+               keywords at index: 8
+               */
+
+        //Constructor
+        public Movie(string imdb_id1, string title1, string year1, string runtime1, string genres1, string score1, string keywords1)
+        {
             imdb_id = imdb_id1;
             title = title1;
             year = year1;
@@ -38,17 +40,20 @@ namespace Movie_Engine
             keywords = keywordsBuilder(keywords1);
             keywordsLength = keywords.Length;           
         }
+        //Constructor
 
-    public string[] keywordsBuilder(string keywordsInput)
-    {
+
+        //functions needed:
+        public string[] keywordsBuilder(string keywordsInput)
+        {
             string[] tempKeywords = keywordsInput.Replace("-", " ").Split(",").ToArray();  
             return tempKeywords;
-    }
-
-     public string ToString()
+        }
+        public string ToString()
         {
             string movieWithDetails = title + " (" + year + ") - IMDB Score: " + score;
             return movieWithDetails;
         }
+        //functions needed:
     }
 }
